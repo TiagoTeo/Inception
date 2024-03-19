@@ -32,9 +32,20 @@ services:
       context: ./requirements/mariadb
     expose:
       - 3306
+    env_file: .env
     networks:
       - Inception
     restart: always
+    volumes:
+      - mariadb_data:/var/lib/mysql #mariadb is a fork of mysql so theres compatibility
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/teo/data/mariadb
+      o: bind
 
 networks:
   Inception:

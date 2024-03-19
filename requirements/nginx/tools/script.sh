@@ -10,8 +10,6 @@ server {
     listen 443 ssl default_server;
     listen [::]:443 ssl default_server;
 
-    server_name mtiago-s.42.fr www.mtiago-s.42.fr;
-
     ssl_certificate /etc/ssl/certs/certificate.crt;
     ssl_certificate_key /etc/ssl/private/privatekey.key;
 
