@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  nginx:
+    # image: nginx
+    # depends_on:
+    #   - wordpress
+    container_name: nginx
+    build:
+      context: ./requirements/nginx
+    ports:
+      - "443:443"
+    networks:
+      - Inception
+    restart: always
+
+  wordpress:
+    # image: wordpress
+    container_name: wordpress
+    build:
+      context: ./requirements/wordpress
+    networks:
+      - Inception
+    expose:
+      - 9000
+    restart: always
+
+  mariadb:
+    # image: mariadb
+    container_name: mariadb
+    build:
+      context: ./requirements/mariadb
+    expose:
+      - 3306
+    networks:
+      - Inception
+    restart: always
+
+networks:
+  Inception:
+    driver: bridge
