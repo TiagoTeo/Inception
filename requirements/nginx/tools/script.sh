@@ -13,8 +13,10 @@ server {
     server_name mtiago-s.42.fr www.mtiago-s.42.fr;
 
     ssl_certificate /etc/ssl/certs/certificate.crt;
-    ssl_certificate_key /etc/ssl/private/privatekey.key
-    ssl_protocols TLSv1.3;" > /etc/nginx/sites-available/default
+    ssl_certificate_key /etc/ssl/private/privatekey.key;
+
+    ssl_protocols TLSv1.3;
+    }" > /etc/nginx/sites-available/default
 
 
 # echo '
@@ -28,7 +30,7 @@ server {
 #             include fastcgi_params;
 #             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 #         }
-# } ' >>  /etc/nginx/sites-available/default
+# }' >>  /etc/nginx/sites-available/default
 
 
-# nginx -g "daemon off;"
+nginx -g "daemon off;"
