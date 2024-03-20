@@ -1,15 +1,13 @@
 FROM debian:bullseye
 
-RUN apt-get update -y && apt-get install mariadb-server -y
+RUN apt update && \ 
+    apt install mariadb-server -yq && \
+    apt-get clean && \ 
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
-RUN mkdir -p /var/run/mysqld && \
-    chown -R mysql:mysql /var/run/mysqld && \
-    chmod 777 /var/run/mysqld
+COPY ./tools/script.sh /tmp/script.sh
 
-COPY ./tools/script.sh /
-RUN chmod 744 script.sh
+# RUN chmod +x script.sh
 
-EXPOSE 3306
-
-ENTRYPOINT [ "tail", "-f", "/dev/null" ]
+ENTRYPOINT /tmp/script.sh
+# ENTRYPOINT [ "tail", "-f", "/dev/null" ]
