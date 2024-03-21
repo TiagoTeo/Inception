@@ -9,5 +9,8 @@ COPY ./tools/script.sh /tmp/script.sh
 
 # RUN chmod +x script.sh
 
+
+EXPOSE 3306
+
 ENTRYPOINT /tmp/script.sh
 # ENTRYPOINT [ "tail", "-f", "/dev/null" ]

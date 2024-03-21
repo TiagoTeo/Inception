@@ -8,6 +8,7 @@ if [ -f ./wp-config.php ]
 then
 	echo "wordpress already downloaded"
 else
+	cd /var/www/html
 	curl -LO https://wordpress.org/latest.tar.gz
 	tar xzvf latest.tar.gz
 	mv wordpress/* .
@@ -24,6 +25,8 @@ else
 	wp core install --allow-root --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMIN_USER} --admin_password=${WP_ADMIN_PASS} --admin_email=${WP_ADMIN_EMAIL}
 	# Adds an extra user with no admin permissions
 	wp user create --allow-root ${WP_USER} ${WP_EMAIL} --user_pass=${WP_USER_PASS};
+
+	chown -R www-data:www-data /var/www/html/wp-content
 fi
 
 # Starts the PHP-FPM in the foreground

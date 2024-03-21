@@ -21,6 +21,10 @@ COPY ./tools/script.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/script.sh
 
+EXPOSE 9000
+
 ENTRYPOINT /usr/local/bin/script.sh
+
+
 
 # ENTRYPOINT [ "tail", "-f", "/dev/null" ]
