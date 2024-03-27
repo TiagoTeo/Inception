@@ -9,10 +9,10 @@ $(WP_DIR):
 $(MARIADB_DIR):
 	@mkdir -p $@
 
-up: $(MARIADB_DIR) $(WP_DIR)
+up: $(MARIADB_DIR) $(WP_DIR) 
 	@docker compose -f srcs/docker-compose.yml up --build -d 
 
-down: 
+down:
 	@docker compose -f srcs/docker-compose.yml down
 
 re: down up
