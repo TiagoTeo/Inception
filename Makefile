@@ -1,5 +1,5 @@
-WP_DIR = /home/teo/data/wordpress
-MARIADB_DIR = /home/teo/data/mariadb
+WP_DIR = /home/mtiago-s/data/wordpress
+MARIADB_DIR = /home/mtiago-s/data/mariadb
 
 all: up
 
