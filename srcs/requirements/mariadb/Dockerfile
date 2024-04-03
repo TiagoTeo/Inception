@@ -7,7 +7,7 @@ RUN apt update && \
 
 COPY ./tools/script.sh /tmp/script.sh
 
-# RUN chmod +x script.sh
+RUN chmod +x /tmp/script.sh
 
 
 EXPOSE 3306
